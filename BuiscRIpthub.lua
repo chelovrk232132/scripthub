@@ -35,7 +35,7 @@ local colors = {
 local Window = Library.CreateLib("ScriptHub", "RJTheme3")
 
 -- Секция
-local Tab = Window:NewTab("Скрипты")
+local Tab = Window:NewTab("скрипты какие то")
 
 -- Подсекция
 local Section = Tab:NewSection("келвин вруби сервак")
@@ -90,4 +90,15 @@ end)
 -- Кнопка
 Section:NewButton("Арсенал", "ButtonInfo", function()
          loadstring(game:HttpGet('https://raw.githubusercontent.com/wuhaz/arsenal/main/main.lua'))()
+end)
+local Tab = Window:NewTab("Обычные функции")
+
+local Section = Tab:NewSection("посмотри вниз еблан")
+-- Кнопка
+Section:NewButton("Infinity Yield", "ButtonInfo", function()
+         loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+-- Кнопка
+Section:NewButton("флай", "ButtonInfo", function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
 end)
