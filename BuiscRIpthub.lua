@@ -32,13 +32,16 @@ local colors = {
 }
 ]]
 -- Создать окно UI
-local Window = Library.CreateLib("ScriptHub", "RJTheme3")
+local Window = Library.CreateLib("Скрипт хаб", "RJTheme3")
 
 -- Секция
-local Tab = Window:NewTab("Скрипты")
+local Tab = Window:NewTab("Скрипты ахуенные")
 
 -- Подсекция
-local Section = Tab:NewSection("ScriptHub")
+local Section = Tab:NewSection("посмотри вниз еблан")
+
+-- Заголовок
+Section:NewLabel("Снизу скрипты")
 
 -- Кнопка
 Section:NewButton("Би сварм симулятор", "ButtonInfo", function()
@@ -82,9 +85,20 @@ Section:NewButton("Контер блокс (HvH)", "ButtonInfo", function()
 end)
 -- Кнопка
 Section:NewButton("Зомби аттак", "ButtonInfo", function()
-         loadstring(game:HttpGet(('https://raw.githubusercontent.com/RTrade/Voidz/main/Games.lua'),true))()
+         loadstring(game:HttpGet(('https://raw.githubusercontent.com/RTrade/Voidz/main/Games.lua'),true))() 
 end)
 -- Кнопка
 Section:NewButton("Арсенал", "ButtonInfo", function()
          loadstring(game:HttpGet('https://raw.githubusercontent.com/wuhaz/arsenal/main/main.lua'))()
+end)
+local Tab = Window:NewTab("хуйня всякая")
+
+local Section = Tab:NewSection("снизу не скрипт хаб")
+-- Кнопка
+Section:NewButton("Infinity Yield", "ButtonInfo", function()
+         loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+-- Кнопка
+Section:NewButton("флай", "ButtonInfo", function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
 end)
