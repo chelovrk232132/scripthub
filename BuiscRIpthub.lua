@@ -38,7 +38,7 @@ local Window = Library.CreateLib("ScriptHub", "RJTheme3")
 local Tab = Window:NewTab("Скрипты")
 
 -- Подсекция
-local Section = Tab:NewSection("ScriptHub")
+local Section = Tab:NewSection("келвин вруби сервак")
 
 -- Заголовок
 Section:NewLabel("Снизу скрипты")
@@ -90,15 +90,4 @@ end)
 -- Кнопка
 Section:NewButton("Арсенал", "ButtonInfo", function()
          loadstring(game:HttpGet('https://raw.githubusercontent.com/wuhaz/arsenal/main/main.lua'))()
-end)
-local Tab = Window:NewTab("Обычные функции")
-
-local Section = Tab:NewSection("ScriptHub")
--- Кнопка
-Section:NewButton("Infinity Yield", "ButtonInfo", function()
-         loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-end)
--- Кнопка
-Section:NewButton("флай", "ButtonInfo", function()
-         loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
 end)
