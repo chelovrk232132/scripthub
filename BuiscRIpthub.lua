@@ -32,13 +32,13 @@ local colors = {
 }
 ]]
 -- Создать окно UI
-local Window = Library.CreateLib("Скрипт хаб", "RJTheme3")
+local Window = Library.CreateLib("ScriptHub", "RJTheme3")
 
 -- Секция
-local Tab = Window:NewTab("Скрипты ахуенные")
+local Tab = Window:NewTab("келвин вруби сервак")
 
 -- Подсекция
-local Section = Tab:NewSection("посмотри вниз еблан")
+local Section = Tab:NewSection("посмотри вниз")
 
 -- Заголовок
 Section:NewLabel("Снизу скрипты")
@@ -94,6 +94,17 @@ end)
 local Tab = Window:NewTab("хуйня всякая")
 
 local Section = Tab:NewSection("снизу не скрипт хаб")
+-- Кнопка
+Section:NewButton("Infinity Yield", "ButtonInfo", function()
+         loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+-- Кнопка
+Section:NewButton("флай", "ButtonInfo", function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+end)
+local Tab = Window:NewTab("Обычные функции")
+
+local Section = Tab:NewSection("посмотри вниз")
 -- Кнопка
 Section:NewButton("Infinity Yield", "ButtonInfo", function()
          loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
