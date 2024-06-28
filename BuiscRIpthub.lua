@@ -93,7 +93,7 @@ Section:NewButton("Арсенал", "ButtonInfo", function()
 end)
 local Tab = Window:NewTab("Обычные функции")
 
-local Section = Tab:NewSection("посмотри вниз еблан")
+local Section = Tab:NewSection("посмотри вниз")
 -- Кнопка
 Section:NewButton("Infinity Yield", "ButtonInfo", function()
          loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
