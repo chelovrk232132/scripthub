@@ -38,7 +38,7 @@ local Window = Library.CreateLib("ScriptHub", "RJTheme3")
 local Tab = Window:NewTab("скрипты какие то")
 
 -- Подсекция
-local Section = Tab:NewSection("келвин вруби сервак")
+local Section = Tab:NewSection("Скрипты снизу")
 
 -- Заголовок
 Section:NewLabel("Снизу скрипты")
