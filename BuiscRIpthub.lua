@@ -1,104 +1,128 @@
--- Ссылка на Библиотеку
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robojini/Tuturial_UI_Library/main/UI_Template_1"))()
---[[ 
-В данный момент стоит тема "RJTheme3" ,
-вы можете использовать другую тему приведённую ниже -
-"RJTheme1"
-"RJTheme2"
-"RJTheme3"
-"RJTheme4"
-"RJTheme5"
-"RJTheme6"
-"RJTheme7"
-"RJTheme8"
-//////////////////////////////////////////////////////////////////
-
-Что бы сделать свою тему , уберите часть скрипта из "комминтариев" ,
-который находится чуть ниже , и вместо "RJTheme3" в переменной "Windows" - 
-напишите переменную которая используется в скрипте чуть ниже .
-]]
---[[
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local colors = {
-	-- Цвет фона у Секций
-    SchemeColor = Color3.fromRGB(150, 72, 148),
-	-- Цвет фона в правой части UI
-	Background = Color3.fromRGB(15,15,15),
-	-- Цвет фона в левой части UI
-    Header = Color3.fromRGB(15,15,15),
-	-- Цвет текста
-    TextColor = Color3.fromRGB(255,255,255),
-	-- Цвет фона у кнопок
-    ElementColor = Color3.fromRGB(20, 20, 20)
+	SchemeColor = Color3.fromRGB(100, 0, 255),
+	Background = Color3.fromRGB(30, 30, 30),
+	Header = Color3.fromRGB(30, 30, 30),
+	TextColor = Color3.fromRGB(255, 255, 255),
+	ElementColor = Color3.fromRGB(75, 75, 75)
 }
-]]
--- Создать окно UI
-local Window = Library.CreateLib("ScriptHub", "RJTheme3")
+local win = lib.CreateLib("Breaking in", colors)
 
--- Секция
-local Tab = Window:NewTab("скрипты какие то")
+local tele = win:NewTab("Teleports")
+local player = win:NewTab("Fun")
+local items = win:NewTab("Items")
+local v = win:NewTab("Vault")
 
--- Подсекция
-local Section = Tab:NewSection("Скрипты снизу")
+local tp = tele:NewSection("Teleport")
+local plr = player:NewSection("Fun")
+local item = items:NewSection("Items")
+local vault = v:NewSection("Vault")
 
--- Заголовок
-Section:NewLabel("Снизу скрипты")
+local UIS = game:GetService'UserInputService'
+local char = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:wait()
 
--- Кнопка
-Section:NewButton("Би сварм симулятор", "ButtonInfo", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Historia00012/HISTORIAHUB/main/BSS FREE"))()
+plr:NewSlider("Speed", "Change your speed.", 100, 20, function(t)
+	char.Humanoid.WalkSpeed = t
 end)
 
--- Кнопка
-Section:NewButton("Присон лайф", "ButtonInfo", function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/wrinqV2t"))()
+plr:NewSlider("Jump Power", "Change your Jump Power.", 200, 50, function(t)
+	char.Humanoid.JumpPower = t
 end)
 
--- Кнопка
-
-Section:NewButton("Блейд бол", "ButtonInfo", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/main/scripts/BladeBallV3.lua"))()
+plr:NewKeybind("Toggle UI", "Toggle UI with this keybind.", Enum.KeyCode.RightShift, function()
+	lib:ToggleUI()
 end)
 
--- Кнопка
-
-Section:NewButton("Мардер мистери 2", "ButtonInfo", function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/Roman34296589/SnapSanix-GUI-MM2/main/SnapSanix%20GUI%20mm2.lua'))() 
+plr:NewToggle("Inf Jump", "Infinitely Jump", function(t)
+    getgenv().infjump = t
 end)
 
--- Кнопка
+plr:NewButton("IY", "Executes Infinite Yield", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
 
-Section:NewButton("Build A Boat", "ButtonInfo", function()
-        loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")() 
+UIS.InputBegan:Connect(function(UserInput,Typed)
+	if getgenv().infjump == true and UserInput.KeyCode == Enum.KeyCode.Space then
+		char.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	end
 end)
--- Кнопка
 
-Section:NewButton("Дорс", "ButtonInfo", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/FFJ1/Roblox-Exploits/main/scripts/Loader.lua"))() 
-end)
--- Кнопка
-Section:NewButton("Контер блокс", "ButtonInfo", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/fliskScript/jaran.vip/main/free.lua"))() 
-end)
--- Кнопка
-Section:NewButton("Контер блокс (HvH)", "ButtonInfo", function()
-         loadstring(game:HttpGet("https://pastebin.com/raw/rdCPiGUf"))() 
-end)
--- Кнопка
-Section:NewButton("Зомби аттак", "ButtonInfo", function()
-         loadstring(game:HttpGet(('https://raw.githubusercontent.com/RTrade/Voidz/main/Games.lua'),true))() 
-end)
--- Кнопка
-Section:NewButton("Арсенал", "ButtonInfo", function()
-         loadstring(game:HttpGet('https://raw.githubusercontent.com/wuhaz/arsenal/main/main.lua'))()
-end)
-local Tab = Window:NewTab("Обычные функции")
 
-local Section = Tab:NewSection("посмотри вниз")
--- Кнопка
-Section:NewButton("Infinity Yield", "ButtonInfo", function()
-         loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+tp:NewButton("House", "Teleport inside the House.", function()
+    char.HumanoidRootPart.CFrame = CFrame.new(-36, 3, -200)
 end)
--- Кнопка
-Section:NewButton("флай", "ButtonInfo", function()
-         loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+
+tp:NewButton("Basement", "Teleport inside the Basement", function()
+    char.HumanoidRootPart.CFrame = CFrame.new(71, -15, -163)
 end)
+
+tp:NewButton("Attic", "Teleport inside the Attic.", function()
+    char.HumanoidRootPart.CFrame = CFrame.new(-16, 35, -220)
+end)
+
+tp:NewButton("Store", "Teleport in the Store.", function()
+    char.HumanoidRootPart.CFrame = CFrame.new(-422, 3, -121)
+end)
+
+tp:NewButton("Lid", "Teleport ontop the Sewer Lid.", function()
+    char.HumanoidRootPart.CFrame = CFrame.new(129, 3, -125)
+end)
+
+tp:NewButton("Boss Room", "Teleport to the Sewer Boss Room.", function()
+    char.HumanoidRootPart.CFrame = CFrame.new(-39, -287, -1480)
+end)
+
+
+item:NewButton("Apple", "Spawn an Apple.", function()
+    game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Apple")
+end)
+
+item:NewButton("Cookie", "Spawn a Cookie.", function()
+    game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Cookie")
+end)
+
+item:NewButton("Chips", "Spawn some Chips", function()
+    game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Chips")
+end)
+
+item:NewButton("Lollipop", "Spawn a Lollipop", function()
+    game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Lollipop")
+end)
+
+item:NewButton("Cure", "Spawn the Cure.", function()
+    game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Cure")
+end)
+
+item:NewButton("Linked Sword", "Spawn Guest's Sword", function()
+    game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("LinkedSword")
+end)
+
+item:NewButton("Teddy Bear", "Spawn Teddy Bloxpin", function()
+    game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("TeddyBloxpin")
+end)
+
+item:NewButton("Bat", "Spawn a Bat", function()
+    game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Bat")
+end)
+
+item:NewButton("Plank", "Spawn a Plank.", function()
+    game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Plank")
+end)
+
+item:NewButton("Bloxy Cola", "Spawn a Bloxy Cola.", function()
+    game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("BloxyCola")
+end)
+
+item:NewButton("Pizza", "Spawn a big Pizza!", function()
+    game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Pizza3")
+end)
+
+item:NewButton("Bloxy Pack", "Spawn a Pack of Bloxy Cola, Can only be done once.", function()
+    game.ReplicatedStorage.RemoteEvents.BloxyPack:FireServer(1)
+end)
+
+vault:NewButton("Get Code", "Teleports the Vault Code to you.", function()
+    game.workspace.CodeNote.CFrame = char.HumanoidRootPart.CFrame
+end)
+
+--made by Ali
